@@ -101,11 +101,13 @@ If you need to convert images for `blit()`, see the `tools/convert_to_bitmap.py`
 
 **Image converter (`tools/convert_to_bitmap.py`)**
 
-Convert a PNG into a Python bytes array or an XBM-style C array. Example:
+Convert a PNG into a Python bytes array.
+
+Example:
 
 ```bash
 pip3 install pillow
-python3 tools/convert_to_bitmap.py cat.png examples/cat_bitmap.py --width 128 --height 32 --var CAT_BITMAP
+python3 tools/convert_to_bitmap.py cat.png examples/cat_bitmap.py --width 86 --height 23 --var CAT_BITMAP
 ```
 
 Options:
