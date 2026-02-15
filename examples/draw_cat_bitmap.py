@@ -1,5 +1,6 @@
 """
-  Draw a cat bitmap on the LCD. The bitmap data is generated from the convert_to_bitmap.py tool, which converts an image file to a byte array that can be blitted to the LCD.
+  Draw a cat bitmap on the LCD. The bitmap data is generated from the convert_to_bitmap.py tool, 
+  which converts an image file to a byte array that can be blitted to the LCD.
   The cat.png image is a 86x23 pixel black-and-white image. You can create your own bitmaps and convert them using the tool.
 """
 import microcontroller

@@ -1,6 +1,6 @@
 """
-CircuitPython (ESP32)
-the following contains only 94 characters
+Bitmap font
+The following contains only 94 characters
 """
 textFont={
     0:[0x00, 0x3E, 0x51, 0x49, 0x45, 0x3E, 0x00],

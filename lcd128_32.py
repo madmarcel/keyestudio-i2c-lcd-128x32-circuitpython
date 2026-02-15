@@ -1,6 +1,6 @@
 """
-Circuit Python (ESP32-S3) driver for 128x32 I2C LCD displays based on the ST7565 controller.
-Designed for use with Keyestudio 128x32 I2C LCD module (KS-12832A), but should work with similar displays.
+Circuit Python driver for 128x32 I2C LCD displays based on the ST7565 controller.
+Designed for use with Keyestudio 128x32 I2C LCD module, but should work with similar displays.
 Requires the lcd128_32_fonts module for character bitmaps.
 Only 94 limited characters in fonts can be displayed due to the original font design.
 """

@@ -21,10 +21,8 @@ from pathlib import Path
 from PIL import Image
 import argparse
 
-def pack_image(img, width, height, invert=False, packing='msb'):
+def pack_image(img, width, height, invert=False):
     # img: PIL image in mode '1' or 'L' (black=0)
-    # packing: 'msb' -> bit7 = leftmost pixel in byte (original driver blit)
-    #          'lsb' -> bit0 = leftmost pixel in byte (XBM style)
     stride = (width + 7) // 8
     out = bytearray(stride * height)
     for y in range(height):
@@ -46,11 +44,9 @@ def pack_image(img, width, height, invert=False, packing='msb'):
                     on = (pv == 0) or (pv == 1) or (pv < 128)
                     if invert:
                         on = not on
-                    b = 1 if on else 0
-                if packing == 'msb':
-                    byte |= (b << (7 - bit))  # MSB-first
-                else:
-                    byte |= (b << bit)        # LSB-first (XBM)
+                    b = 1 if on else 0                
+                    byte |= (b << (7 - bit))  # MSB-first packing
+                
             out[y * stride + xb] = byte
     return out
 
@@ -91,9 +87,7 @@ def main():
     # produce strict black/white (no dithering)
     bw = img.point(lambda p: 0 if p < 128 else 255).convert('1')
 
-    # choose packing based on output format
-    packing = 'msb'
-    packed = pack_image(bw.convert('L'), args.width, args.height, invert=args.invert, packing=packing)
+    packed = pack_image(bw.convert('L'), args.width, args.height, invert=args.invert)
 
     out_path = Path(args.output)
     with out_path.open('w', encoding='utf8') as f:

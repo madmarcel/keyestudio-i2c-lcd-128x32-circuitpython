@@ -2,18 +2,9 @@
 Animated drawing demo for the 128x32 LCD.
 Displays some animated bar graphs and text.
 """
-import board
 from lcd128_32_graphics import Lcd128_32_Graphics as lcdscreen
 import microcontroller
 
-# On some boards you can use board.SDA and board.SCL instead of pin numbers.
-# My ESP32-S3 does not support that, so I manually specify the pin numbers below. Edit as needed.
-# sda_pin = board.SDA
-# scl_pin = board.SCL
-
-# Note: The board module will not always list all the available pins,
-# so you can use this line to find the correct pin objects.
-# print(dir(microcontroller.pin))
 sda_pin = microcontroller.pin.GPIO17
 scl_pin = microcontroller.pin.GPIO18
 
